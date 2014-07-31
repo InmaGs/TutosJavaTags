@@ -73,5 +73,21 @@
                 </s:iterator>
             </s:generator>
         </p>
+        <p>
+            Resultado de la prueba de <strong>append</strong>:<br/>
+            <!-- Es unir dos iteradores. Se unirán un generador creado ahora y
+                la lista de usuarios proveniente de la class-->
+            <s:generator val="%{'a,b,c,d'}" separator="," var="generado">
+                <s:append var="iteradorAgregado">
+                    <s:param value="generado"/>
+                    <s:param value="usuarios"/>
+                </s:append>
+            </s:generator>
+            <!-- Ahora que ya lo hemos generado, lo usamos-->
+            <s:iterator value="%{#iteradorAgregado}">
+                <s:property/><br/>
+            </s:iterator>
+                <!-- Y siguen sin aparecer los usuarios :( -->
+        </p>
     </body>
 </html>

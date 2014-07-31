@@ -28,7 +28,7 @@ public class ControlAction extends ActionSupport{
     //Definimos una variable que contendrá la lista de objetos, será con la que
     //trabajemos a la hora de usar las etiquetas de control
     private List<Usuario> usuarios= new ArrayList<Usuario>();
-    
+        
     public List<Usuario> getUsuarios(){
         return usuarios;
     }
@@ -43,15 +43,14 @@ public class ControlAction extends ActionSupport{
             //usuario.setNombre("Usuario "+i);
             //usuario.setEdad(i+10);
             Usuario usuario = new Usuario("Usuario "+i,i+10);
-            
-           // if(i%2==0){
+            if(i%2==0){
                  
                 //dir.setCalle("calle "+i);
                 //dir.setCodigoPostal("ABC"+i);
                 //usuario.setDireccion(dir);
-               // usuario.setDireccion(new Direccion("calle "+ i, "ABC"+i));
+                usuario.setDireccion(new Direccion("calle "+ i, "ABC"+i));
                 
-            //}
+            }
             //usuario.setNombre("Nombre "+i);
             //Usuario usuario = new Usuario("Nombre "+i,i+10,dir);
             //usuario.setEdad(i+10);
