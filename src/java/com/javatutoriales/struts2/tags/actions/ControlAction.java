@@ -7,7 +7,7 @@
 //Creación del action que llena una lista con objetos de 'Usuario' y 'Direccion'
 package com.javatutoriales.struts2.tags.actions;
 
-import com.javatutoriales.struts2.tags.modelo.Direccion;
+import com.javatutoriales.struts2.tags.modelo.Direc;
 import com.javatutoriales.struts2.tags.modelo.Usuario;
 import com.opensymphony.xwork2.ActionSupport;
 import org.apache.struts2.convention.annotation.*;
@@ -37,35 +37,31 @@ public class ControlAction extends ActionSupport{
     //dirección a los objetos pares:
     @Override
     public String execute() throws Exception{
-        //Direccion dir = new Direccion();
+        
         for (int i=0;i<10;i++){
-            //Usuario usuario = new Usuario();
-            //usuario.setNombre("Usuario "+i);
-            //usuario.setEdad(i+10);
-            Usuario usuario = new Usuario("Usuario "+i,i+10);
+            
+            String nombre="Usuario "+i;
+
+            Usuario usuario = new Usuario(nombre,i+10);
+            
             if(i%2==0){
-                 
-                //dir.setCalle("calle "+i);
-                //dir.setCodigoPostal("ABC"+i);
-                //usuario.setDireccion(dir);
-                usuario.setDireccion(new Direccion("calle "+ i, "ABC"+i));
+                String calle="Calle "+i;
+                String codigo="2800"+i;
+                usuario.setDireccion(new Direc(calle, codigo));
                 
             }
-            //usuario.setNombre("Nombre "+i);
-            //Usuario usuario = new Usuario("Nombre "+i,i+10,dir);
-            //usuario.setEdad(i+10);
-            //usuario.setDireccion(dir);
-            usuarios.add(usuario);
+            usuarios.add(usuario);  
         }
         return SUCCESS;
     }
+    
     
     //Ahora creamos un comparador para ordenar los objetos Usuario por orden 
     //alfabético inverso (se podría elegir cualquier otra forma).
     
     private Comparator<Usuario> comparadorUsuarios = new ComparadorUsuarios();
     
-    public Comparator<Usuario> getComparadorUrusarios(){
+    public Comparator<Usuario> getComparadorUsuarios(){
         return comparadorUsuarios;
     }
     

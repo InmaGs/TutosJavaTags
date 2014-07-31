@@ -25,7 +25,7 @@
             <s:else>
                 Este mensaje tampoco se verá
             </s:else>
-        </p>
+        </p> <%--
         <p>
             Resultado de la prueba de <strong>iterator</strong>:<br/>
         <table>
@@ -54,7 +54,7 @@
                 </s:iterator>
             </tbody>
         </table>    
-        </p> 
+        </p> --%>
         <p>
             Resultado de <strong>iterator</strong> cuando obtiene datos de una colección:
             <!-- Similar al ejercicio anterior, pero en el value se pone el nombre
@@ -62,14 +62,14 @@
                 obtenidos a través de la clase ControlAction-->
             <!-- No sale nada en pantalla :( -->
             <s:iterator value="usuarios">
-                <s:property value="nombre"/>
-            </s:iterator>
-        </p>
+                <s:property value="nombre" /><br/>
+            </s:iterator>            
+        </p> 
         <p>
             Resultado de la prueba de la etiqueta <strong>generator</strong>:
             <s:generator val="%{'1,2,3,4,5'}" separator=",">
                 <s:iterator>
-                    <s:property/>
+                    <s:property />
                 </s:iterator>
             </s:generator>
         </p>
@@ -100,6 +100,14 @@
             <s:iterator value="%{#iteradorFusionado}">
                 <s:property /><br/>
             </s:iterator>
+        </p> 
+        <p>
+            Resultado de la prueba de <strong>Sort</strong>:<br/>
+            <s:sort comparator="%{comparadorUsuarios}" source="%{usuarios}">
+                <s:iterator>
+                    <s:property value="%{nombre}"/><br/>
+                </s:iterator>
+            </s:sort> 
         </p>
     </body>
 </html>
