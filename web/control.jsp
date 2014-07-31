@@ -89,5 +89,17 @@
             </s:iterator>
                 <!-- Y siguen sin aparecer los usuarios :( -->
         </p>
+        <p>
+            Resultado de la prueba de <strong>merge</strong>:<br/>
+            <s:generator val="%{'a1,b2,c3,d4'}" separator="," var="generado">
+                <s:merge var="iteradorFusionado">
+                    <s:param value="generado"/>
+                    <s:param value="usuarios"/>
+                </s:merge>
+            </s:generator>
+            <s:iterator value="%{#iteradorFusionado}">
+                <s:property /><br/>
+            </s:iterator>
+        </p>
     </body>
 </html>
