@@ -37,20 +37,25 @@ public class ControlAction extends ActionSupport{
     //dirección a los objetos pares:
     @Override
     public String execute() throws Exception{
-        
+        //Direccion dir = new Direccion();
         for (int i=0;i<10;i++){
-            Usuario usuario = new Usuario();
-            usuario.setNombre("Usuario "+i);
-            usuario.setEdad(i+10);
-            //Usuario usuario = new Usuario("Usuario "+i,i+10);
+            //Usuario usuario = new Usuario();
+            //usuario.setNombre("Usuario "+i);
+            //usuario.setEdad(i+10);
+            Usuario usuario = new Usuario("Usuario "+i,i+10);
             
             if(i%2==0){
-                Direccion dir = new Direccion(); 
-                dir.setCalle("calle "+i);
-                dir.setCodigoPostal("ABC"+i);
-                usuario.setDireccion(dir);
-                //usuario.setDireccion(new Direccion("calle "+ i, "ABC"+i))
+                 
+                //dir.setCalle("calle "+i);
+                //dir.setCodigoPostal("ABC"+i);
+                //usuario.setDireccion(dir);
+                usuario.setDireccion(new Direccion("calle "+ i, "ABC"+i));
+                
             }
+            //usuario.setNombre("Nombre "+i);
+            //Usuario usuario = new Usuario("Nombre "+i,i+10,dir);
+            //usuario.setEdad(i+10);
+            //usuario.setDireccion(dir);
             usuarios.add(usuario);
         }
         return SUCCESS;

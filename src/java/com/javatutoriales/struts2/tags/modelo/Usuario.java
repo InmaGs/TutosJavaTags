@@ -19,6 +19,13 @@ public class Usuario implements Serializable {
     private int edad;
     private Direccion direccion;
     
+    public Usuario(){}
+    public Usuario(String nombre,int edad/*, Direccion direccion*/){
+        this.nombre=nombre;
+        this.edad=edad;
+        //this.direccion=direccion;
+    }
+    
     public String getNombre(){
         return nombre;
     }

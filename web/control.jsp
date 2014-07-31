@@ -26,5 +26,34 @@
                 Este mensaje tampoco se verá
             </s:else>
         </p>
+        <p>
+            Resultado de la prueba de <strong>iterator</strong>:<br/>
+        <table>
+            <thead>
+                <tr>
+                    <td>Valor</td>
+                    <td>Indice</td>
+                    <td>Conteo</td>
+                    <td>¿Es primero?</td>
+                    <td>¿Es último?</td>
+                    <td>¿Es par?</td>
+                    <td>¿Es impar?</td>
+                </tr>
+            </thead>
+            <tbody>
+                <s:iterator begin="1" end="10" step="2" var="valorActual" status="estatus">
+                    <tr>
+                        <td><s:property/></td>
+                        <td><s:property value="#estatus.index"/></td>
+                        <td><s:property value="#estatus.count"/></td>
+                        <td><s:property value="#estatus.first"/></td>
+                        <td><s:property value="#estatus.last"/></td>
+                        <td><s:property value="#estatus.even"/></td>
+                        <td><s:property value="#estatus.odd"/></td>
+                    </tr>                  
+                </s:iterator>
+            </tbody>
+        </table>    
+        </p>
     </body>
 </html>
