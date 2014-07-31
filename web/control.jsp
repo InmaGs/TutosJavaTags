@@ -25,7 +25,7 @@
             <s:else>
                 Este mensaje tampoco se verá
             </s:else>
-        </p> <%--
+        </p> 
         <p>
             Resultado de la prueba de <strong>iterator</strong>:<br/>
         <table>
@@ -54,13 +54,12 @@
                 </s:iterator>
             </tbody>
         </table>    
-        </p> --%>
+        </p> 
         <p>
-            Resultado de <strong>iterator</strong> cuando obtiene datos de una colección:
+            Resultado de <strong>iterator</strong> cuando obtiene datos de una colección:<br/>
             <!-- Similar al ejercicio anterior, pero en el value se pone el nombre
                 de la colección que queremos mostrar. En este caso de los usuarios
                 obtenidos a través de la clase ControlAction-->
-            <!-- No sale nada en pantalla :( -->
             <s:iterator value="usuarios">
                 <s:property value="nombre" /><br/>
             </s:iterator>            
@@ -86,8 +85,7 @@
             <!-- Ahora que ya lo hemos generado, lo usamos-->
             <s:iterator value="%{#iteradorAgregado}">
                 <s:property/><br/>
-            </s:iterator>
-                <!-- Y siguen sin aparecer los usuarios :( -->
+            </s:iterator>          
         </p>
         <p>
             Resultado de la prueba de <strong>merge</strong>:<br/>
@@ -108,6 +106,17 @@
                     <s:property value="%{nombre}"/><br/>
                 </s:iterator>
             </s:sort> 
+        </p>
+        <p>
+            Resultado de la prueba de <strong>Subset</strong>:<br/>
+            <!-- Eso se usa para obtener un subconjunto de una colección,
+                retornando tres elementos de la colección y empezando por
+                el segundo elemento-->
+            <s:subset source="usuarios" count="3" start="2">
+                <s:iterator>
+                    <s:property value="nombre"/><br/>
+                </s:iterator>
+            </s:subset>
         </p>
     </body>
 </html>
