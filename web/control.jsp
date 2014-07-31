@@ -54,6 +54,24 @@
                 </s:iterator>
             </tbody>
         </table>    
+        </p> 
+        <p>
+            Resultado de <strong>iterator</strong> cuando obtiene datos de una colección:
+            <!-- Similar al ejercicio anterior, pero en el value se pone el nombre
+                de la colección que queremos mostrar. En este caso de los usuarios
+                obtenidos a través de la clase ControlAction-->
+            <!-- No sale nada en pantalla :( -->
+            <s:iterator value="usuarios">
+                <s:property value="nombre"/>
+            </s:iterator>
+        </p>
+        <p>
+            Resultado de la prueba de la etiqueta <strong>generator</strong>:
+            <s:generator val="%{'1,2,3,4,5'}" separator=",">
+                <s:iterator>
+                    <s:property/>
+                </s:iterator>
+            </s:generator>
         </p>
     </body>
 </html>
