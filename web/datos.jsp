@@ -122,7 +122,62 @@
              <s:i18n name="com/javatutoriales/struts2/tags/textos/textos">
                  <!-- Indicamos el texto que queremos mostrar -->
                  <s:text name="instrucciones"/>
+                 <s:form>
+                     <s:label value="%{getText('etiqueta')}"/>
+                     <!-- Otra forma de hacer lo mismo es por medio del atributo key:
+                     <s:label key="etiqueta"/> y <s:submit key="boton"/> -->
+                     <s:textfield/>
+                     <s:submit value="%{getText('boton')}"/>
+                 </s:form>
              </s:i18n>
+         </p>
+         <p>
+             Etiqueta <strong>include</strong>: <br/>
+             <!-- Permite agregar la salida de un server (Servlet o JSP) en la página
+                actual. Útil para contenido que se repite en varias páginas o para agrupar
+                el contenido de varias en una sola.-->
+             <!-- Agregaremos a esta página el contenido de la página contenido.jsp, 
+                incluyendo un parámetro-->
+             <s:include value="contenido.jsp">
+                 <s:param name="usuario" value="'Inma'"/>
+             </s:include>
+         </p>
+         <p>
+             Etiqueta <strong>param</strong>: <br/>
+             <!-- Es la etiqueta que se ha estado usando para parametrizar el 
+                resto de etiquetas-->
+             Esta etiqueta no tiene uso independiente de las otras etiquetas. 
+             No puede mostrarse ningún ejemplo en concreto.
+         </p>
+         <p>
+             Etiqueta <strong>property</strong>: <br/>
+             <!-- Se usa para especificar las propiedades de un objeto, el cual se espera 
+                que está en la cima de la pila.-->
+             Esta etiqueta no tiene uso independiente de las otras etiquetas. 
+             No puede mostrarse ningún ejemplo en concreto.             
+         </p>
+         <p>
+             Etiqueta <strong>push</strong>: <br/>
+             <!-- Su utilidad reside en colocar momentaneamente un objeto en la cima
+                del stack. Cuando la etiqueta se cierre, el objeto se quitará de la cima-->
+             <!-- Creamo un bean, que da un objeto que se pondrá en el stack -->
+             <s:bean name="com.javatutoriales.struts2.tags.modelo.Usuario" var="usuario">
+                 <s:param name="nombre" value="'Inmacu'"/>
+                 <s:param name="edad" value="32"/>                 
+             </s:bean>
+             <!-- Comprobamos lo que se encuentra en la cima del stack -->
+             Lo que hay en la cima es: <s:property/><br/>
+             <!-- Colocamos el bean usuario en la cima: -->
+             <s:push value="usuario">
+                 <!-- Comprobamos que está en la cima: -->
+                 En la cima ahora está: <s:property/><br/>
+                 <!-- y obtenemos sus propiedades: -->
+                 Propiedades:<br/>
+                 Nombre: <s:property value="nombre"/><br/>
+                 Edad: <s:property value="edad"/><br/>
+             </s:push>
+             <!-- Comprobamos nuevamente que usuario ya no está en la cima del stack: -->
+             <s:property/>
          </p>
              
         
