@@ -170,14 +170,35 @@
              <!-- Colocamos el bean usuario en la cima: -->
              <s:push value="usuario">
                  <!-- Comprobamos que está en la cima: -->
-                 En la cima ahora está: <s:property/><br/>
+                 Cuando hacemos push, en la cima ahora está: <s:property/><br/>
                  <!-- y obtenemos sus propiedades: -->
                  Propiedades:<br/>
                  Nombre: <s:property value="nombre"/><br/>
                  Edad: <s:property value="edad"/><br/>
              </s:push>
              <!-- Comprobamos nuevamente que usuario ya no está en la cima del stack: -->
-             <s:property/>
+             Terminado el push, tenemos en la cima: <s:property/>
+         </p>
+         <p>
+             Etiqueta <strong>set</strong>:<br/>
+             <!-- Permite asignar un valor a una variable en un scope especificado. Útil para
+                asignar el resultado de una expresión compleja o larga a una variable para usar
+                ésta en vez de la expresión-->
+             <!-- Suponiendo que hay un dato que se repite o es largo, asignamos su valor a una 
+                variable para su mejor manejo:-->
+             <s:set var="datos" value="'Programación Java: www.javatutoriales.com, correo@gmail.com'"/>
+             <!-- Se muestra el valor de la variable: -->
+             La variable datos contiene: 
+             <s:property value="datos"/><br/>
+             <!-- Se pueden almacenar los resultados de operaciones: -->
+             <s:set var="calculo">${1+2+3+4+5}</s:set>
+             El resultado de 1+2+3+4+5 es: <s:property value="calculo"/>
+         </p>
+         <p>
+             Etiqueta <strong>debug</strong>:<br/>
+             <!-- Etiqueta que imprime el valor del ValueStack y del StackContext 
+                para poder ver su contenido actual. No tiene atributos-->
+             <s:debug/>
          </p>
              
         
