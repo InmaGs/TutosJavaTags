@@ -7,6 +7,11 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
 	<filter>
 		<filter-name>struts2</filter-name>
 		<filter-class>org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter</filter-class>
+                <!-- Agregamos un parámetro para las modificaciones de los textos de las fechas -->
+                <init-param>
+                    <param-name>struts.custom.i18n.resources</param-name>
+                    <param-value>struts-mensajes</param-value>
+                </init-param>
 	</filter>
 
 	<filter-mapping>
