@@ -72,16 +72,59 @@
          </s:action>
              Fuera de la etiqueta Action: <s:property value="#controlAction == null"/><br/><br/>
                  <!-- Obtenemos el valor del parámetro -->
-             Valor del Parámetro: <s:property value="#controlAction.parametro"/><br/>
+             Valor del Parámetro: <s:property value="#controlAction.parametro"/><br/><br/>
              <!-- De este modo se puede acceder a cualquier parámetro del Action. -->
-             Lista de Usuarios: <s:property value="#controlAction.usuarios"/><br/>
+             Lista de Usuarios: <s:property value="#controlAction.usuarios"/><br/><br/>
              <!-- Se puede agregar estos valores a otras etiquetas: -->
              Lista de Usuarios con iterador:
              <s:iterator value="#controlAction.usuarios">
                  <s:property value="nombre"/>
-             </s:iterator>
-             
+             </s:iterator><br/>             
          </p>
+         <p>
+             Etiqueta <strong>bean</strong>:<br/>
+             <!-- Instancia en el jsp una clase que siga la especificación JavaBeans. 
+                Notar que este bean no se coloca en la cima del stack, por lo que para hacer 
+                referencia al bean se debe usar el nombre completo que se asigne junto con #-->
+             <!-- Para el ejemplo usamos la clase usuario: -->
+             <s:bean name="com.javatutoriales.struts2.tags.modelo.Usuario" var="beanUsuario">
+                 <!-- Con el atributo var, le asignamos un nombre a la variable con
+                    el que poder instanciar posteriormente.-->
+                 <!-- Establecemos unos valores de parámetros: -->
+                 <s:param name="nombre" value="%{'Inma'}"/>
+                 <s:param name="edad" value="%{'31'}"/>
+             </s:bean>
+                 <!-- Obtenemos los valores de los parámetros del bean -->
+                 Nombre: <s:property value="#beanUsuario.nombre"/><br/>
+                 Edad: <s:property value="#beanUsuario.edad"/><br/>
+         </p>
+         <p>
+             Etiqueta <strong>date</strong>:<br/>
+             <!-- Permite formatear los objetos de fecha de diferentes maneras -->
+             <!-- Invocamos el método que obtiene las fechas actual y futura 
+                establecidas en la clase Fechas -->
+             
+             <s:date name="new com.javatutoriales.struts2.tags.util.Fechas().getFechaActual()" nice="true"/><br/>
+             <s:date name="new com.javatutoriales.struts2.tags.util.Fechas().getFechaFutura()" nice="true"/>
+             <!-- Con el atributo format le damos formato a la fecha, por ejemplo: format="dd/MM/YYYY, HH:mm" -->
+             <!-- El atributo nice pone de forma 'bonita' la fecha. Se hace en el idioma y texto por defecto.
+                Para cambiar estas propiedades preestablecidas se hace uso del mecanismo de internacionalización
+                de i18n, creando un 'property file' llamado 'struts-mensajes'. Luego, hay que añadir la
+                propiedad correspondiente al archivo web.xml-->
+         </p>
+         <p>
+             Etiquetas <strong>i18n</strong> y <strong>text</strong>:<br/>
+             <!-- La etiqueta i18n permite acceder a los mensajes del archivo de propiedades 
+                donde se colocan las llaves y textos que representan. La etiqueta text convertirá
+                a texto estos valores. Para mostrar el ejemplo, creamos un package con un archivo de
+                propiedades con los textos.-->
+             <!-- En la etiqueta i18n indicamos la ruta del archivo de propiedades: -->
+             <s:i18n name="com/javatutoriales/struts2/tags/textos/textos">
+                 <!-- Indicamos el texto que queremos mostrar -->
+                 <s:text name="instrucciones"/>
+             </s:i18n>
+         </p>
+             
         
     </body>
 </html>
