@@ -118,5 +118,16 @@
                 </s:iterator>
             </s:subset>
         </p>
+        
+        <p>
+            Resultado de la prueba de Subset con Decider:<br/>
+            <s:subset source="usuarios" decider="decider">
+                <!-- Se pueden usar los mismos atributos que en el subset anterior
+                para definir los elementos a mostrar-->
+                <s:iterator>
+                    <s:property value="nombre"/><br/>
+                </s:iterator>
+            </s:subset>
+        </p>
     </body>
 </html>

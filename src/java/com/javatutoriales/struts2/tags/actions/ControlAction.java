@@ -72,4 +72,11 @@ public class ControlAction extends ActionSupport{
         }
     }
     
+    //Creamos una instancia de getter para la clase FiltroUsuarios:
+    private SubsetIteratorFilter.Decider decider = new FiltroUsuarios();
+    
+    public SubsetIteratorFilter.Decider getDecider(){
+        return decider;
+    }
+    
 }
