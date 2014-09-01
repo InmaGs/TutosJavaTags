@@ -59,6 +59,27 @@
          </p>
          <p>
              Etiqueta <strong>Action</strong>:<br/>
+             <!-- Invoca al método execute y permite ejecutar el Action dentro de una página jsp.
+                El resutl del Action se ignorará a no ser que se indique lo contrario.-->    
+             Comprobación de una variable, que dará null o no según se ejecute un Action:<br/>
+         <s:action name="control" namespace="/" var="controlAction">
+             <!-- Se le asigna una variable para poder referenciarlo posteriormente -->
+             <!-- Para comprobar el resultado del Action, colocamos etiquetas dentro 
+                y fuera de la etiqueta action si la variable controlAction es nula o no-->
+             Dentro de la etiqueta Action: <s:property value="#controlAction == null" />             <br/> 
+             <!--Asignamos un valor a un parámetro: -->
+                 <s:param name="parametro" value="%{'abc123'}"/>
+         </s:action>
+             Fuera de la etiqueta Action: <s:property value="#controlAction == null"/><br/><br/>
+                 <!-- Obtenemos el valor del parámetro -->
+             Valor del Parámetro: <s:property value="#controlAction.parametro"/><br/>
+             <!-- De este modo se puede acceder a cualquier parámetro del Action. -->
+             Lista de Usuarios: <s:property value="#controlAction.usuarios"/><br/>
+             <!-- Se puede agregar estos valores a otras etiquetas: -->
+             Lista de Usuarios con iterador:
+             <s:iterator value="#controlAction.usuarios">
+                 <s:property value="nombre"/>
+             </s:iterator>
              
          </p>
         

@@ -79,4 +79,15 @@ public class ControlAction extends ActionSupport{
         return decider;
     }
     
+    //Añadimos get y set para una variable, que contendrá un parámetro que se asignará
+    //como atributo a las etiquetas de datos action:
+    private String parametro;
+    
+    public String getParametro(){
+        return parametro;
+    }
+    
+    public void setParametro(String parametro){
+        this.parametro=parametro;
+    }
 }
