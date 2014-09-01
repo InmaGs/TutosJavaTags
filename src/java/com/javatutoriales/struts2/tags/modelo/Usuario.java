@@ -7,6 +7,7 @@
 //Creación de la clase de la que vamos a obtener los datos necesarios
 package com.javatutoriales.struts2.tags.modelo;
 
+import com.javatutoriales.struts2.tags.modelo.Direc;
 import java.io.Serializable;
 
 /**
@@ -17,13 +18,12 @@ public class Usuario implements Serializable {
     
     private String nombre;
     private int edad;
-    private Direccion direccion;
+    private Direc direccion;
     
     public Usuario(){}
-    public Usuario(String nombre,int edad/*, Direccion direccion*/){
+    public Usuario(String nombre,int edad){
         this.nombre=nombre;
-        this.edad=edad;
-        //this.direccion=direccion;
+        this.edad=edad;        
     }
     
     public String getNombre(){
@@ -34,7 +34,7 @@ public class Usuario implements Serializable {
         return edad;
     }
     
-    public Direccion getDireccion(){
+    public Direc getDireccion(){
         return direccion;
     }
     
@@ -46,7 +46,7 @@ public class Usuario implements Serializable {
         this.edad=edad;
     }
     
-    public void setDireccion(Direccion direccion){
+    public void setDireccion(Direc direccion){
         this.direccion=direccion;
     }
 }

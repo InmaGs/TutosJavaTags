@@ -13,12 +13,12 @@ import java.io.Serializable;
  *
  * @author inmaculada.garcia
  */
-public class Direccion implements Serializable{
+public class Direc implements Serializable{
     
     private String calle, codigoPostal;
     
-    public Direccion(){}
-    public Direccion(String calle, String codigoPostal){
+    public Direc(){}
+    public Direc(String calle, String codigoPostal){
         this.calle=calle;
         this.codigoPostal=codigoPostal;
     }
