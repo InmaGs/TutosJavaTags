@@ -99,5 +99,51 @@
                          id="radioTest" name="radioTest" listKey="edad" listValue="nombre"/>
             </s:form>
         </p>
+        <p>
+            Etiqueta <strong>select</strong>:<br/>
+            Funciona de forma similar a las dos anteriores. En su list puede recibir una lista
+            o un mapa de elementos (cualquier tipo de objeto).
+            <s:form>
+                <s:label for="selectTest" value="Select Mapa: "/>
+                <s:select list="#{'1':'uno','2':'dos','3':'tres','4':'cuatro','5':'cinco'}"
+                          id="selectTest" name="selectTest" headerKey="-1" 
+                          headerValue="Selecciona una opción"/><br/>
+                <!-- Aprovechamos de nuevo los bean anteriores -->
+                <s:label for="selectTestLista" value="Select Lista: "/>
+                <s:select list="{#usuario1,#usuario2,#usuario3}" id="selectTestLista"
+                          name="selectTestLista" listKey="edad" listValue="nombre"
+                          headerKey="-1" headerValue="Seleccione una opción"/>
+                <!-- headerKey y headerValue aportan un valor extra en la lista que será la primera
+                    opción que se muestra y que no es ningún valor de la lista mostrada, sino uno 
+                    nuevo que no tendrá ninguna asignación a la hora de hacer algún submit-->
+                
+            </s:form>
+        </p>
+        <p>
+            Etiqueta <strong>optgroup</strong>:<br/>
+            Marca una serie de categorías con sus elementos. Con ella se agrupa una serie de valores y 
+            sólo puede ser usada dentro de una etiqueta 'select'. Recibirá sus valores a través de un mapa
+            o de una lista cuyos objetos no sean cadenas.
+            <s:form>
+                <s:select id="selectTestOpt" name="selectTestOpt" list="{'JSE','JEE','JME'}">
+                    <!-- Añadimos el optgroup cuya lista de opciones sea un mapa -->
+                    <s:optgroup label="Servidores" list="#{'1':'Glassfish','2':'JBoss','3':'WebLogic'
+                                ,'4':'WebSphere'}"/>
+                    <!-- Se coloca un segundo grupo de datos: -->
+                    <s:optgroup label="Bases de Datos" list="#{'5':'Oracle','6':'MySQL','7':'SQL Server'
+                                ,'8':'PosgreSLQ'}"/>
+                </s:select>
+            </s:form>
+            También en este caso es posible obtener los elementos de la lista por medio de beans:
+            <s:form>
+                <s:select id="selectTestOpt" name="selectTestOpt" list="{'JSE','JEE','JME'}">                    
+                    <s:optgroup label="Bases de Datos" list="#{'5':'Oracle','6':'MySQL','7':'SQL Server'
+                                ,'8':'PosgreSLQ'}"/>
+                    <s:optgroup label="Usuarios" listKey="edad" listValue="nombre"
+                                list="{#usuario1,#usuario2,#usuario3}"/>
+                </s:select>                
+            </s:form>
+        </p>
+        
     </body>
 </html>
