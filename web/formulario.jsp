@@ -267,6 +267,41 @@
                                        list="#{'1':'Linux','2':'Mac OS','3':'Windows'}"/>
             </s:form>
         </p>
+        <p>
+            Etiqueta <strong>optiontransferselect</strong>:<br/>
+            Proporciona dos select cuyos elementos de lista pueden intercambiarse entre sí.
+            <s:form>
+                <!-- El ejemplo es de un map, pero pueden obtenerse elementos de listas
+                    o de beans también -->
+                <s:optiontransferselect name="ots1Test" id="ots1Test"
+                                        doubleName="ots2Test" doubleId="ots2Test"
+                                        list="#{'1':'php','2':'.net','3':'Phyton'}"
+                                        doubleList="#{'4':'java','5':'Scala','6':'Groovy'}"/>
+            </s:form>
+        </p>
+        <p>
+            Etiqueta <strong>reset</strong>:<br/>
+            Limpia todos los datos colocados en un formulario.
+            <s:form>
+                <s:textfield name="tfReset"/>
+                <s:reset type="button" value="Limpiar"/>
+            </s:form>                
+        </p>
+        <p>
+            Etiqueta <strong>submit</strong>:<br/>
+            Envía los datos del formulario al servidor. Para simplificar el ejemplo, en este
+            caso no ocurre nada al pulsar el botón.
+            <s:form>
+                <s:submit type="button" value="Enviar"/>
+            </s:form>
+        </p>
+        <p>
+            Etiqueta <strong>token</strong>:<br/>
+            Evita que un formulario sea enviado dos veces, está oculto y no tiene atributos.
+            <s:form>
+                <s:token/>
+            </s:form>
+        </p>
         
     </body>
 </html>
