@@ -17,5 +17,6 @@
         <s:a action="control">Etiquetas de control.</s:a><br/>
         <s:a href="datos.jsp">Etiquetas de datos</s:a><br/>
         <a href="formulario.jsp">Etiquetas de formularios</a><br/>
+        <s:a action="mensajes">Etiquetas UI de no formulario</s:a>
     </body>
 </html>
