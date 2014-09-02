@@ -190,13 +190,39 @@
                                 id="comboboxTest" name="comboboxTest" headerKey="-1"
                                 headerValue="Selecciones un elemento" emptyOption="true"/>
             </s:form>
-            Usando el beam anterior:<br/>
+            Usando el bean anterior:<br/>
             <s:form>
                 <s:label for="selectTest" value="Select: "/>
                 <s:combobox list="{#usuario1,#usuario2,#usuario3}" id="selectTest"
                             name="selectTest" listKey="edad" listValue="nombre"
                             headerKey="-1" headerValue="Seleccione una opción"
                             emptyOption="true" />
+            </s:form>
+        </p>
+        <p>
+            Etiqueta <strong>doubleselect</strong>: <br/>
+            Es una combinación de dos listas select, de modo que la primera lista determina lo que aparece
+            en la segunda.<br/>
+            <s:form>
+                <!-- Internamente, el doubleselect ejecuta un pequeño Script -->
+                <s:doubleselect name="primerLista" id="doubleselectList1Test"
+                                doubleName="segundaLista" doubleId="doubleselectList2Test"
+                                list="{'especialidad','lenguaje'}"
+                                doubleList="top=='especialidad'?{'comunicacion','bases de datos',
+                                'criptografia'}:{'java','php','.net'}"/>
+                <!-- Se usa 'top' para preguntar por el valor seleccionado y en función de él
+                    se muestra una segunda lista u otra.-->
+                <!-- No me funciona :( aunque el código (tanto aquí como el html generado) 
+                    es el mismo que en el ejemplo. Es como si estuviera usando un mapa, cosa que 
+                    no funciona con esta etiquta.-->
+                <!-- Para poder usar un mapa, necesitamos establecer los valores del mapa en una variable: -->
+                <s:set var="mapaValores" value="#{'Especialidad':{'Comunicación','Bases de Datos',
+                                                  'Criptografía'},'Lenguajes':{'Java','PHP','.Net'},
+                                                  'Conocimientos':{'Básico','Intermedio','Avanzado'}}"/>
+                <!-- Con esto, ahora podemos usar el doubleselect -->
+                <s:doubleselect name="pirmerLista2" id="doubleselectList1Test2"
+                                doubleName="segundaLista2" doubleId="doubleselectList2Test2"
+                                list="#mapaValores.keySet()" doubleList="#mapaValores[top]"/>
             </s:form>
         </p>
         
