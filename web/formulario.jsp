@@ -144,6 +144,61 @@
                 </s:select>                
             </s:form>
         </p>
+        <p>
+            Etiqueta <strong>textfield</strong>:<br/>
+            Consiste en un campo de texto.<br/>
+            <s:form>
+                <s:label for="textfieldTest" value="Texto: "/>
+                <s:textfield id="textfieldTest" name="texfieldTest" value="texto"/>
+            </s:form>
+        </p>
+        <p>
+            Etiqueta <strong>password</strong>:<br/>
+            Consiste en un campo de texto con los caracteres ocultos.<br/>
+            <s:form>
+                <s:label for="passwordTest" value="Password: "/>
+                <s:password id="passwordTest" name="passwordTest" value="password" />
+                <!-- Si quisieramos que el valor del password, se podría poner el atributo
+                    showPassword="true"-->
+            </s:form>
+        </p>
+        <p>
+            Etiqueta <strong>hidden</strong>:<br/>
+            Genera un texto oculto:<br/>
+            <s:form>
+                <s:label for="hiddenTest" value="Texto oculto: "/>
+                <s:hidden name="hiddenTest" value="abc123"/>
+                <!-- Que no se debe mostrar en la pantalla -->
+            </s:form>            
+        </p>
+        <p>
+            Etiqueta <strong>textarea</strong>:<br/>
+            Genera un campo de texto con saltos de línea.<br/>
+            <s:form>
+                <s:label for="textareaTest" value="Textarea: "/>
+                <s:textarea cols="20" rows="5" value="Texto para el area" id="textareaTest"
+                            name="textareaTest" />
+            </s:form>
+        </p>
+        <p>
+            Etiqueta <strong>combobox</strong>: <br/>
+            Mezcla un input de texto con un select, de forma que se coloca un texto en el input a la vez
+            que se selecciona en el select. Para rellenar el input se genera un código en JavaScript.<br/>
+            <s:form>               
+                <s:label for="comboboxTest" value="Combobox: "/>
+                <s:combobox list="#{'1':'uno','2':'dos','3':'tres','4':'cuatro','5':'cinco'}" 
+                                id="comboboxTest" name="comboboxTest" headerKey="-1"
+                                headerValue="Selecciones un elemento" emptyOption="true"/>
+            </s:form>
+            Usando el beam anterior:<br/>
+            <s:form>
+                <s:label for="selectTest" value="Select: "/>
+                <s:combobox list="{#usuario1,#usuario2,#usuario3}" id="selectTest"
+                            name="selectTest" listKey="edad" listValue="nombre"
+                            headerKey="-1" headerValue="Seleccione una opción"
+                            emptyOption="true" />
+            </s:form>
+        </p>
         
     </body>
 </html>
