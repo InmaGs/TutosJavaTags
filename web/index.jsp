@@ -14,7 +14,8 @@
     </head>
     <body>
         <h1>Etiquetas de Struts 2</h1>
-        <s:a action="control">Etiquetas de control.</s:a>
-        <s:a href="datos.jsp">Etiquetas de datos</s:a>
+        <s:a action="control">Etiquetas de control.</s:a><br/>
+        <s:a href="datos.jsp">Etiquetas de datos</s:a><br/>
+        <a href="formulario.jsp">Etiquetas de formularios</a><br/>
     </body>
 </html>
