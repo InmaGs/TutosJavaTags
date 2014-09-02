@@ -206,10 +206,12 @@
             <s:form>
                 <!-- Internamente, el doubleselect ejecuta un pequeño Script -->
                 <s:doubleselect name="primerLista" id="doubleselectList1Test"
+                                headerValue="Seleccionar" headerKey="-1"
                                 doubleName="segundaLista" doubleId="doubleselectList2Test"
+                                doubleHeaderValue="Selecciona" doubleHeaderKey="-1"
                                 list="{'especialidad','lenguaje'}"
                                 doubleList="top=='especialidad'?{'comunicacion','bases de datos',
-                                'criptografia'}:{'java','php','.net'}"/>
+                                'criptografia'}:{'java','php','.net'}"/><br/>
                 <!-- Se usa 'top' para preguntar por el valor seleccionado y en función de él
                     se muestra una segunda lista u otra.-->
                 <!-- No me funciona :( aunque el código (tanto aquí como el html generado) 
@@ -221,8 +223,48 @@
                                                   'Conocimientos':{'Básico','Intermedio','Avanzado'}}"/>
                 <!-- Con esto, ahora podemos usar el doubleselect -->
                 <s:doubleselect name="pirmerLista2" id="doubleselectList1Test2"
+                                headerValue="Seleccionar" headerKey="-1"
                                 doubleName="segundaLista2" doubleId="doubleselectList2Test2"
-                                list="#mapaValores.keySet()" doubleList="#mapaValores[top]"/>
+                                doubleHeaderValue="Selecciona" doubleHeaderKey="-1"
+                                list="#mapaValores.keySet()" doubleList="#mapaValores[top]"/><br/>
+                <!-- Lo cual sigue sin funcionar -->
+                <!-- Tambien se pueden obtener los valores de la lista desde un bean, el cual
+                    tendría que ser un mapa cuya llave (Key) sea una cadena y su valor (Value)
+                    una lista de cadenas, de la forma Map<String, List<String>> -->
+            </s:form>
+        </p>
+        <p>
+            Etiqueta <strong>updownselect</strong>:<br/>
+            Coloca un select con botones para moverse por sus elementos. Los elementos seleccionados
+            serán enviados en el orden en que se encuentren.<br/>
+            <s:form>
+                <s:updownselect list="#{'java':'Java','php':'PHP','puntoNet':'.Net'}"
+                                name="updownselectTest" id="updownselectTest"
+                                headerKey="-1" headerValue="-Selecciona en el orden deseado-"
+                                emptyOption="true"/><br/>
+                <!-- Desde un bean (hecho por mí, no hay ejemplo en el tutorial) -->
+                Desde un bean:<br/>
+                <s:updownselect list="{#usuario1,#usuario2,#usuario3}"
+                                name="updownselectBean" id="updownselectTest"
+                                listKey="edad" listValue="nombre"
+                                headerKey="-1" headerValue="-Selecciona usuario-"
+                                emptyOption="true"/>
+            </s:form>
+        </p>
+        <p>
+            Etiqueta <strong>inputtransferselect</strong>:<br/>
+            Es combinación de un select de múltiples valores y una entrada de texto
+            que permite agregar y eliminar valores de la lista.
+            <s:form>
+                <s:inputtransferselect name="inputselectTest" id="inputselectTest"
+                                       list="{'Linux','Mac OS', 'Windows'}"/><br/>
+                Desde un map:<br/>
+                <!-- Y personalizando las opciones -->
+                <s:inputtransferselect name="inputselectTest2" id="inputselectTest2"
+                                       addLabel="Agregar" removeLabel="Eliminar" 
+                                       removeAllLabel="Eliminar todo" upLabel="Subir"
+                                       downLabel="Bajar"
+                                       list="#{'1':'Linux','2':'Mac OS','3':'Windows'}"/>
             </s:form>
         </p>
         
